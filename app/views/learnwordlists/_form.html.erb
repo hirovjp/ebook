@@ -1,0 +1,27 @@
+<%= form_with(model: learnwordlist, local: true) do |form| %>
+  <% if learnwordlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(learnwordlist.errors.count, "error") %> prohibited this learnwordlist from being saved:</h2>
+
+      <ul>
+        <% learnwordlist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wordlist_id %>
+    <%= form.number_field :wordlist_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

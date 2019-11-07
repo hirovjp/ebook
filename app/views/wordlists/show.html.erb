@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @wordlist.category_id %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @wordlist.language %>
+</p>
+
+<p>
+  <strong>Translate language:</strong>
+  <%= @wordlist.translate_language %>
+</p>
+
+<%= link_to 'Edit', edit_wordlist_path(@wordlist) %> |
+<%= link_to 'Back', wordlists_path %>
