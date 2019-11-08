@@ -1,0 +1,52 @@
+<h1>List word list</h1>
+
+<%= @learnWordList.inspect %>
+
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>category</th>
+    <th>language</th>
+    <th>translate</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @wordlist.each do |word| %>
+    <tr>
+      <td><%= word.id %></td>
+      <td><%= word.category.name %></td>
+      <td><%= word.language %></td>
+      <td><%= word.translate_language %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<p><%= will_paginate @wordlist %></p>
+
+<h1>Learn word list</h1>
+<h2><%= @user.email %></h2>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>language</th>
+    <th>translate_language</th>
+    <th>time learn</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @demo.each do |word| %>
+    <tr>
+      <td><%= word.id %></td>
+      <td><%= word.language %></td>
+      <td><%= word.translate_language %></td>
+      <td><%= word.updated_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Word list', wordlists_path %>
+
