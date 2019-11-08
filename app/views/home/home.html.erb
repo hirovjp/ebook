@@ -23,6 +23,7 @@
   <% end %>
   </tbody>
 </table>
+<p><%= will_paginate @wordlist %></p>
 
 <h1>Learn word list</h1>
 <h2><%= @user.email %></h2>
@@ -47,5 +48,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Word list', wordlist_path %>
+<%= link_to 'Word list', wordlists_path %>
 

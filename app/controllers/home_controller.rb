@@ -1,9 +1,8 @@
 class HomeController < ApplicationController
   def home
-    @wordlist = Wordlist.limit(5)
+    @wordlist = Wordlist.all.paginate(:page => params[:page], :per_page => 10)
     @user = User.find(1)
     @demo = Wordlist.joins(:learnwordlists).where(:learnwordlists => {:user_id => @user.id})
-    @cate = Category.find(1)
   end
 
   def new
