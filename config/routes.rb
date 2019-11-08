@@ -12,5 +12,17 @@ Rails.application.routes.draw do
   scope 'front' do
   end
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/' => 'home#index'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  
+
+  get 'admin' => 'category#index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 end

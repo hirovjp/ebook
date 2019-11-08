@@ -7,5 +7,7 @@ class HomeController < ApplicationController
 
   def new
     @wordlist = Wordlist.new
+  skip_before_action :authorize
+  def index
   end
 end
