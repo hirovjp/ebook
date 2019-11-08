@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<%= @user.inspect %>
 <h1>Categories</h1>
-
+<div align="right">
+  <%= button_to 'Logout', '/logout', :method => :delete %>
+</div>
 <table>
   <thead>
     <tr>
@@ -21,7 +23,5 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Category', new_category_path %>

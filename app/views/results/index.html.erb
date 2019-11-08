@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<%= @user.inspect %>
 <h1>Results</h1>
-
+<div align="right">
+  <%= button_to 'Logout', '/logout', :method => :delete %>
+</div>
 <table>
   <thead>
     <tr>
