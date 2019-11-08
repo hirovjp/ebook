@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     if user = User.authenticate(params[:email], params[:password])
       session[:user_id] = user.id
       if user.level == 1
-        redirect_to categories_url
+        redirect_to '/'
       else
-        redirect_to results_url
+        redirect_to home_url
       end
     else
       redirect_to login_url, :alert => "Invalid username/password"
