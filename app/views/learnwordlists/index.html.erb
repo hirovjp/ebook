@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<h1 align="center">Learnwordlists</h1>
 
-<h1>Learnwordlists</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -12,6 +12,8 @@
   </thead>
 
   <tbody>
+  <% if @user.level == 1 %>
+    <%= link_to 'New Learnwordlist', new_learnwordlist_path, :class => "btn btn-success" %>
     <% @learnwordlists.each do |learnwordlist| %>
       <tr>
         <td><%= learnwordlist.user_id %></td>
@@ -21,9 +23,14 @@
         <td><%= link_to 'Destroy', learnwordlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% else %>
+    <% @learnwordlists.each do |learnwordlist| %>
+      <tr>
+        <td><%= learnwordlist.user_id %></td>
+        <td><%= learnwordlist.wordlist_id %></td>
+      </tr>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Learnwordlist', new_learnwordlist_path %>
+</div>

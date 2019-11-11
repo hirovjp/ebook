@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
-<%= @user.inspect %>
+<div class="container">
 <h1>Categories</h1>
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.id %></td>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if @user.level == 1 %>
+      <%= link_to 'New Category', new_category_path, :class => "btn btn-success" %>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+          <td><%= link_to 'Show', category %></td>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+          <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      <% else %>
+        <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+        </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>
 <br>
-<%= link_to 'New Category', new_category_path %>
+</div>
