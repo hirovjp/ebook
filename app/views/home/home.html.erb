@@ -1,8 +1,16 @@
+<div class="dropdown" align="right">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%=@user.email %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Setting</a>
+      <%= link_to 'Logout', logout_path, :class => "dropdown-item", :method => :delete %>
+    </div>
+</div>
+
+<div class="container">
 <h1>List word list</h1>
-
-<%= @learnWordList.inspect %>
-
-<table>
+<table class="table">
   <thead>
   <tr>
     <th>id</th>
@@ -23,12 +31,10 @@
   <% end %>
   </tbody>
 </table>
-<%= link_to 'hihi', new_category_path %>
 <p><%= will_paginate @wordlist %></p>
 
 <h1>Learn word list</h1>
-<h2><%= @user.email %></h2>
-<table>
+<table class="table">
   <thead>
   <tr>
     <th>id</th>
@@ -48,6 +54,4 @@
   <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Add', wordlists_path %>
-
+</div>
