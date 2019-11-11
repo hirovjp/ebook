@@ -1,7 +1,17 @@
 <!DOCTYPE html>
-<div align="right">
-  <%= button_to 'Logout', '/logout', :method => :delete %>
-</div>
+  <div class="dropdown" align="right">
+    <% if logged_in? %>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.email %>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to 'Setting', edit_user_path(current_user), :class => "dropdown-item" %>
+        <%= link_to 'Logout', logout_path, :class => "dropdown-item", :method => :delete %>
+      </div>
+      <% else %>
+      <%= button_to 'Login', login_path, :class => "btn btn-primary", :method => :get %>
+      <% end %>
+  </div>
 <html>
   <head>
     <title>Example</title>
@@ -14,5 +24,9 @@
 
   <body>
     <%= yield %>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

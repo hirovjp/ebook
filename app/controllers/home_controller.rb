@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  # skip_before_action :authorize
+  skip_before_action :authorize
 
   def home
     @wordlist = Wordlist.all.paginate(:page => params[:page], :per_page => 10)
