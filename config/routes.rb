@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope 'front' do
   end
 
-  get '/' => 'home#index'
+  get '/' => 'home#index', as: 'elearn'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
