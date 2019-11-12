@@ -24,13 +24,11 @@ class LearnwordlistsController < ApplicationController
   # POST /learnwordlists
   # POST /learnwordlists.json
   def create
-    @user = current_u
-    wordlist = Wordlist.find(params[:wordlist_id])
-    @learnwordlist = @user.learnwordlists.build(:wordlist => wordlist)
+    @learnwordlist = Learnwordlist.new(learnwordlist_params)
 
     respond_to do |format|
       if @learnwordlist.save
-        format.html { redirect_to home_path, notice: 'Learnwordlist was successfully created.' }
+        format.html { redirect_to @learnwordlist, notice: 'Learnwordlist was successfully created.' }
         format.json { render :show, status: :created, location: @learnwordlist }
       else
         format.html { render :new }
