@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Action user</h2>
+  <%= @user.email %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>lesson_id</th>
+      <th>point</th>
+      <th>created_at</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.id %></td>
+        <td><%= result.lesson.title %></td>
+        <td><%= result.point %></td>
+        <td><%= result.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <p><%= will_paginate @results %></p>
+</div>
