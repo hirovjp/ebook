@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def action_user
+
     @results = Result.joins(:lesson).where('user_id' => @user.id).paginate(:page => params[:page], :per_page => 5)
   end
 end
