@@ -16,9 +16,6 @@
       <li class="nav-item active">
         <%= link_to 'Lesson', lessons_path, :class => "nav-link" %>
       </li>
-      <li class="nav-item active">
-        <%= link_to 'Result', results_path, :class => "nav-link" %>
-      </li>
     </ul>
   </div>&emsp;
   <ul class="dropdown" align="right">
@@ -28,7 +25,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to 'Setting', edit_user_path(current_user), :class => "dropdown-item" %>
-        <%= link_to 'Action', action_user_path, :class => 'dropdown-item' %>
+        <%= link_to 'Results', results_path, :class => "dropdown-item" %>
         <%= link_to 'Logout', logout_path, :class => "dropdown-item", :method => :delete %>
       </div>
       <% else %>
