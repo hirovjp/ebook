@@ -1,5 +1,6 @@
 class WordlistsController < ApplicationController
   before_action :set_wordlist, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: :list
 
   # GET /wordlists
   # GET /wordlists.json
@@ -60,6 +61,31 @@ class WordlistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def list
+    @user = User.find(session[:user_id])
+    @word_list = Wordlist.all
+
+    if params[:category] && params[:category] != "All"
+      @word_list = @word_list.where(:category_id => params[:category])
+    end
+    if params[:wordlist_id] && params[:learnwordlist_id]
+    else
+      learn_id = Learnwordlist.select(:wordlist_id).where(:user_id => 1)
+      if params[:wordlist_id]
+        @word_list = @word_list.where.not(id: learn_id)
+      end
+      if params[:learnwordlist_id]
+        @word_list = @word_list.where(id: learn_id)
+      end
+    end
+      @word_list = @word_list.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  private
+    def list_param
+      params.permit(:category, :wordlist_id, :learnwordlist_id)
+    end
 
   def filter
     params.require(:coupon).permit(:store, :coupon_code)

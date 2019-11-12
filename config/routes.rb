@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   end
 
   get 'profile' => 'profile#profile', as: 'profile'
+  get 'wordlist' => 'wordlists#list', as: 'list'
 end

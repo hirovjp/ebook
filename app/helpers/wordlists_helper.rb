@@ -1,5 +1,5 @@
 module WordlistsHelper
   def select_category
-    [["Select One"], "Cell", "Work", "Office", "Home", "Other"]
+    ["All"] + Category.all.collect{|cate| [cate.name, cate.id]}
   end
 end
