@@ -61,6 +61,10 @@ class WordlistsController < ApplicationController
     end
   end
 
+  def filter
+    params.require(:coupon).permit(:store, :coupon_code)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_wordlist

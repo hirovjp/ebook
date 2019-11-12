@@ -1,43 +1,58 @@
+<%= form_tag({}, {:class => "pt-3"}) do |form| %>
+  <div class="form-row align-items-center">
+    <div class="col-form-label col-sm-2 pt-0">Lọc</div>
+    <div class="custom-control custom-checkbox mr-3">
+      <%= check_box_tag :wordlist_id, :value => 1, :class => "custom-control-input", :id => "daHoc" %> Chưa học
+    </div>
+    <div class="custom-control custom-checkbox">
+      <%= check_box_tag :learnwordlist_id, :value => 1, :class => "custom-control-input", :id => "chuaHoc" %> Đã học
+    </div>
+    <%= select_tag :category_id, options_for_select(select_category), :class => "custom-select custom-select-lg mb-3" %>
+    <%= submit_tag 'Lọc', :class => "btn" %>
+  </div>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Wordlists</h1>
 
 <table class="table">
   <thead>
-    <tr>
-      <td>ID</td>
-      <th>Category</th>
-      <th>Language</th>
-      <th>Translate language</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <td>ID</td>
+    <th>Category</th>
+    <th>Language</th>
+    <th>Translate language</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% if @user.level == 1 %>
-      <% @wordlists.each do |wordlist| %>
-        <tr>
-          <td><%= wordlist.id %></td>
-          <td><%= wordlist.category_id %></td>
-          <td><%= wordlist.language %></td>
-          <td><%= wordlist.translate_language %></td>
-          <td><%= link_to 'Show', wordlist %></td>
-          <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
-          <td><%= link_to 'Destroy', wordlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-      <% else %>
-      <% @wordlists.each do |wordlist|%>
-        <tr>
-          <td><%= wordlist.id %></td>
-          <td><%= wordlist.category_id %></td>
-          <td><%= wordlist.language %></td>
-          <td><%= wordlist.translate_language %></td>
-<!--          <td><%#= link_to 'Learn', new_learnwordlist_path %></td>-->
-          <td><%= link_to 'Learn', wordlist %></td>
-        </tr>
-      <% end %>
+  <% if check_level %>
+    <% @wordlists.each do |wordlist| %>
+      <tr>
+        <td><%= wordlist.id %></td>
+        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.language %></td>
+        <td><%= wordlist.translate_language %></td>
+        <td><%= link_to 'Show', wordlist %></td>
+        <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
+        <td><%= link_to 'Destroy', wordlist, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
     <% end %>
+  <% else %>
+    <% @wordlists.each do |wordlist| %>
+      <tr>
+        <td><%= wordlist.id %></td>
+        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.language %></td>
+        <td><%= wordlist.translate_language %></td>
+        <!--          <td><%#= link_to 'Learn', new_learnwordlist_path %></td>-->
+        <td><%= link_to 'Learn', wordlist %></td>
+      </tr>
+    <% end %>
+  <% end %>
   </tbody>
 </table>
 

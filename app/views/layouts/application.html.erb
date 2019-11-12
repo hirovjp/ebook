@@ -11,7 +11,7 @@
         <%= link_to 'Category', categories_path, :class => "nav-link" %>
       </li>
       <li class="nav-item active">
-        <%= link_to 'Wordlist', wordlists_path, :class => "nav-link" %>
+        <%= link_to 'Wordlist', wordlists_path, :class => "nav-link", wordlist: @wordlist %>
       </li>
       <li class="nav-item active">
         <%= link_to 'Lesson', lessons_path, :class => "nav-link" %>
