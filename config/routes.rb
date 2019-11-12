@@ -9,16 +9,11 @@ Rails.application.routes.draw do
   end
 
   get "/home", to: 'home#home', as: 'home'
-  scope 'front' do
-  end
 
   get '/' => 'home#index', as: 'elearn'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
-  
-
-  get 'admin' => 'category#index'
 
   controller :sessions do
     get 'login' => :new
@@ -26,5 +21,5 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get 'profile' => 'profile#profile', as: 'profile'
+  get 'profile/action', to: 'home#action_user', as: 'action_user'
 end

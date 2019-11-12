@@ -28,6 +28,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to 'Setting', edit_user_path(current_user), :class => "dropdown-item" %>
+        <%= link_to 'Action', action_user_path, :class => 'dropdown-item' %>
         <%= link_to 'Logout', logout_path, :class => "dropdown-item", :method => :delete %>
       </div>
       <% else %>
