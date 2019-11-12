@@ -5,6 +5,8 @@ class ResultsController < ApplicationController
   # GET /results.json
   def index
     @results = Result.all
+    @total_learned = @user.learnwordlists
+    @result_lessons = Lesson.all
   end
 
   # GET /results/1
