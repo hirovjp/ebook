@@ -1,4 +1,12 @@
 class User < ApplicationRecord
-  has_many :results
-  has_many :learnwordlists
+  has_many :results, :dependent => :destroy
+  has_many :learnwordlists, :dependent => :destroy
+
+  def User.authenticate(email, password)
+    if user = find_by_email(email)
+      if user.password == password
+          user
+    end
+  end
+  end
 end
