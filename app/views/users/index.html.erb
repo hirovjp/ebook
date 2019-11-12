@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Users</h1>
 
-<table>
+<table class="table">
   <thead>
   <tr>
     <th>ID</th>
@@ -15,6 +15,8 @@
   </thead>
 
   <tbody>
+  <% if @user.level == 1 %>
+    <%= link_to 'New Lesson', new_user_path, :class => "btn btn-success" %>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
@@ -27,9 +29,17 @@
       <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
+    <% else %>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.image %></td>
+        <td><%= user.level %></td>
+      </tr>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+</div>

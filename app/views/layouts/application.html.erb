@@ -1,17 +1,45 @@
 <!DOCTYPE html>
-  <div class="dropdown" align="right">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to 'E-Learning', elearn_path, :class => "navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Home', home_path, :class => "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Category', categories_path, :class => "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Wordlist', wordlists_path, :class => "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Lesson', lessons_path, :class => "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Result', results_path, :class => "nav-link" %>
+      </li>
+    </ul>
+  </div>&emsp;
+  <ul class="dropdown" align="right">
     <% if logged_in? %>
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= current_user.email %>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= link_to 'Setting', edit_user_path(current_user), :class => "dropdown-item" %>
+        <%= link_to 'Action', action_user_path, :class => 'dropdown-item' %>
         <%= link_to 'Logout', logout_path, :class => "dropdown-item", :method => :delete %>
       </div>
       <% else %>
-      <%= button_to 'Login', login_path, :class => "btn btn-primary", :method => :get %>
+      <ul class="navbar-nav mr-auto">
+        <%= link_to 'Sigup', new_user_path, :class => "btn btn-primary", :method => :get %>&emsp;
+        <%= button_to 'Login', login_path, :class => "btn btn-primary", :method => :get %>
+      </ul>
       <% end %>
-  </div>
+  </ul>
+</nav>
+
 <html>
   <head>
     <title>Example</title>
@@ -30,3 +58,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
+</div>

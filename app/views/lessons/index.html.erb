@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Lessons</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -14,9 +14,11 @@
   </thead>
 
   <tbody>
+  <% if @user.level == 1 %>
+    <%= link_to 'New Lesson', new_lesson_path, :class => "btn btn-success" %>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= lesson.title %></td>
+        <td><%= link_to lesson.title, lesson %></td>
         <td><%= lesson.question %></td>
         <td><%= lesson.answer %></td>
         <td><%= lesson.category_id %></td>
@@ -25,9 +27,18 @@
         <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% else %>
+    <% @lessons.each do |lesson| %>
+      <tr>
+        <td><%= lesson.title %></td>
+        <td><%= lesson.question %></td>
+        <td><%= lesson.answer %></td>
+        <td><%= lesson.category_id %></td>
+      </tr>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'New Lesson', new_lesson_path %>

@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
+  def current_u
+    User.find(session[:user_id])
+  rescue ActiveRecord::RecordNotFound
+    user = User.create
+    session[:user_id] = user.id
+    user
+  end
+
 end
