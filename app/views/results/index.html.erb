@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
+
 <h1>Results</h1>
-<table class="table">
+
+<table>
   <thead>
     <tr>
       <th>User</th>
@@ -12,8 +13,6 @@
   </thead>
 
   <tbody>
-  <% if @user.level == 1 %>
-    <%= link_to 'New Result', new_result_path, :class => "btn btn-success" %>
     <% @results.each do |result| %>
       <tr>
         <td><%= result.user_id %></td>
@@ -24,15 +23,9 @@
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  <% else %>
-    <% @results.each do |result| %>
-      <tr>
-        <td><%= result.user_id %></td>
-        <td><%= result.lesson_id %></td>
-        <td><%= result.point %></td>
-      </tr>
-    <% end %>
-    <% end %>
   </tbody>
 </table>
-</div>
+
+<br>
+
+<%= link_to 'New Result', new_result_path %>

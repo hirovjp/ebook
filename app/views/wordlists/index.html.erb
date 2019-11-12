@@ -2,10 +2,9 @@
 
 <h1>Wordlists</h1>
 
-<table class="table">
+<table>
   <thead>
     <tr>
-      <td>ID</td>
       <th>Category</th>
       <th>Language</th>
       <th>Translate language</th>
@@ -14,29 +13,15 @@
   </thead>
 
   <tbody>
-    <% if @user.level == 1 %>
-      <% @wordlists.each do |wordlist| %>
-        <tr>
-          <td><%= wordlist.id %></td>
-          <td><%= wordlist.category_id %></td>
-          <td><%= wordlist.language %></td>
-          <td><%= wordlist.translate_language %></td>
-          <td><%= link_to 'Show', wordlist %></td>
-          <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
-          <td><%= link_to 'Destroy', wordlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-      <% else %>
-      <% @wordlists.each do |wordlist|%>
-        <tr>
-          <td><%= wordlist.id %></td>
-          <td><%= wordlist.category_id %></td>
-          <td><%= wordlist.language %></td>
-          <td><%= wordlist.translate_language %></td>
-<!--          <td><%#= link_to 'Learn', new_learnwordlist_path %></td>-->
-          <td><%= link_to 'Learn', wordlist %></td>
-        </tr>
-      <% end %>
+    <% @wordlists.each do |wordlist| %>
+      <tr>
+        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.language %></td>
+        <td><%= wordlist.translate_language %></td>
+        <td><%= link_to 'Show', wordlist %></td>
+        <td><%= link_to 'Edit', edit_wordlist_path(wordlist) %></td>
+        <td><%= link_to 'Destroy', wordlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

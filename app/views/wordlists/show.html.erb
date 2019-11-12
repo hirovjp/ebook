@@ -14,10 +14,6 @@
   <strong>Translate language:</strong>
   <%= @wordlist.translate_language %>
 </p>
-<% if @user.level == 1 %>
-  <%= link_to 'Edit', edit_wordlist_path(@wordlist) %> |
-  <%= link_to 'Back', wordlists_path %>
-  <% else %>
-  <%= link_to 'Back', wordlists_path %>
-<% end %>
-<%= button_to 'Learned', learnwordlists_path(:wordlist_id => @wordlist) %>
+
+<%= link_to 'Edit', edit_wordlist_path(@wordlist) %> |
+<%= link_to 'Back', wordlists_path %>
