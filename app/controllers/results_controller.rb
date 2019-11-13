@@ -7,6 +7,8 @@ class ResultsController < ApplicationController
     @results = Result.all
     @total_learned = @user.learnwordlists
     @result_lessons = Lesson.all
+    @lesson_id = lessons_path.__id__
+    @word = Wordlist.all.joins(:lesson).where(lessons: {id: 2})
   end
 
   # GET /results/1
