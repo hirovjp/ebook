@@ -47,3 +47,26 @@
   </tbody>
 </table>
 </div>
+
+
+<hr>
+<h1>Action</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>action</th>
+    <th>point</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @actions.each do |action| %>
+    <tr>
+      <td><%= action.id %></td>
+      <td><%= action.action %></td>
+      <td><%= action.point %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

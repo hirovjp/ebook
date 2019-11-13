@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     get 'wordlist' => 'wordlists#list', as: 'list'
   end
 
+  post ':user_id/follow_user', to: 'relationships#follow_user', as: :follow_user
+  post ':user_id/unfollow_user', to: 'relationships#unfollow_user', as: :unfollow_user
 end
