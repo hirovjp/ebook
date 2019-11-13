@@ -38,5 +38,16 @@
         </tr>
       <% end %>
     <% end %>
+  <% else %>
+    <% @wordlists.each do |wordlist| %>
+      <tr>
+        <td><%= wordlist.id %></td>
+        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.language %></td>
+        <td><%= wordlist.translate_language %></td>
+        <td><%= link_to 'Learn', wordlist %></td>
+      </tr>
+    <% end %>
+  <% end %>
   </tbody>
 </table>

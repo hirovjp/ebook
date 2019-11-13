@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% if @user.level == 1 %>
+    <% if check_level %>
       <%= link_to 'New Category', new_category_path, :class => "btn btn-success" %>
       <% @categories.each do |category| %>
         <tr>
