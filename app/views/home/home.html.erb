@@ -1,13 +1,13 @@
 <div class="container">
-  <%= link_to 'Start Lesson', lessons_path, :class => "btn btn-success" %>
-<h1>List word list</h1>
+  <%= link_to t('index.start'), lessons_path, :class => "btn btn-success" %>
+<h1><%= t('index.listwl') %></h1>
 <table class="table">
   <thead>
   <tr>
     <th>id</th>
-    <th>category</th>
-    <th>language</th>
-    <th>translate</th>
+    <th><%= t('index.category') %></th>
+    <th><%= t('index.language') %></th>
+    <th><%= t('index.translate') %></th>
   </tr>
   </thead>
 
@@ -22,16 +22,17 @@
   <% end %>
   </tbody>
 </table>
-<p><%= will_paginate @wordlist %></p>
 
-<h1>Learn word list</h1>
+  <div align="right"><%= link_to t('index.more'), wordlists_path %></div>
+
+<h1><%= t('index.Learned') %></h1>
 <table class="table">
   <thead>
   <tr>
     <th>id</th>
-    <th>language</th>
-    <th>translate_language</th>
-    <th>time learn</th>
+    <th><%= t('index.language') %></th>
+    <th><%= t('index.translate') %></th>
+    <th><%= t('index.Time') %></th>
   </tr>
   </thead>
   <tbody>

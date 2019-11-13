@@ -1,36 +1,37 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1 align="center">Results</h1>
+<h1 align="center"><%= t('index.Result') %></h1>
+  <h3><%= t('index.You_are_learned') %> <%= @total_learned.count %>/<%= Wordlist.count %> <%= t('index.word') %></h3>
 
-  <%= @word.count.inspect %>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Lesson</th>
-      <th>Point</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <%#= @word.count.inspect %>
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--    <tr>-->
+<!--      <th>Lesson</th>-->
+<!--      <th>Point</th>-->
+<!--      <th colspan="3"></th>-->
+<!--    </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-  <% if @user.level == 1 %>
-    <%= link_to 'New Result', new_result_path, :class => "btn btn-success" %>
-    <% @result_lessons.each do |result| %>
-      <tr>
-        <td><%= result.title %></td>
-        <td><%= link_to 'Show', result %></td>
-        <td><%= link_to 'Edit', edit_result_path(result) %></td>
-        <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  <% else %>
-    <% @result_lessons.each do |result| %>
-      <tr>
-        <td><%= result.title %></td>
-        <td><%= @total_learned.count %>/<%= Wordlist.count %></td>
-      </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+<!--  <tbody>-->
+  <%# if @user.level == 1 %>
+    <%#= link_to 'New Result', new_result_path, :class => "btn btn-success" %>
+    <%# @result_lessons.each do |result| %>
+<!--      <tr>-->
+<!--        <td><%#= result.title %></td>-->
+<!--        <td><%#= link_to 'Show', result %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_result_path(result) %></td>-->
+<!--        <td><%#= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+<!--      </tr>-->
+    <%# end %>
+  <%# else %>
+    <%# @result_lessons.each do |result| %>
+<!--      <tr>-->
+<!--        <td><%#= result.title %></td>-->
+<!--        <td><%#= @total_learned.count %>/<%#= Wordlist.count %></td>-->
+<!--      </tr>-->
+    <%# end %>
+    <%# end %>
+<!--  </tbody>-->
+<!--</table>-->
 </div>

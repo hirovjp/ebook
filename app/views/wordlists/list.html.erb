@@ -14,15 +14,15 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Wordlists</h1>
+<h1><%= t('index.Wordlist') %></h1>
 
 <table class="table">
   <thead>
   <tr>
     <td>ID</td>
-    <th>Category</th>
-    <th>Language</th>
-    <th>Translate language</th>
+    <th>Lesson ID</th>
+    <th><%= t('index.language') %></th>
+    <th><%= t('index.translate') %></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -32,7 +32,7 @@
     <% @word_list.each do |wordlist| %>
       <tr>
         <td><%= wordlist.id %></td>
-        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.lesson_id %></td>
         <td><%= wordlist.language %></td>
         <td><%= wordlist.translate_language %></td>
         <td><%= link_to 'Show', wordlist %></td>
@@ -44,7 +44,7 @@
     <% @word_list.each do |wordlist| %>
       <tr>
         <td><%= wordlist.id %></td>
-        <td><%= wordlist.category_id %></td>
+        <td><%= wordlist.lesson_id %></td>
         <td><%= wordlist.language %></td>
         <td><%= wordlist.translate_language %></td>
         <td><%= link_to 'Learn', wordlist %></td>

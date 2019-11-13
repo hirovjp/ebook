@@ -1,0 +1,25 @@
+vi:
+  layouts:
+    application:
+      home: "Trang chủ"
+      category: "Danh mục"
+      wordlist: "Danh Sách Từ"
+      lesson: "Bài học"
+      user: "Người dùng"
+  index:
+      start: "Bat dau hoc"
+      listwl: "Danh sach tu"
+      category: "Danh muc"
+      language: "Tu"
+      translate: "Nghia"
+      more: "Xem them..."
+      Learned: "Tu da hoc"
+      Time: "Hoc luc"
+      Wordlist: "Danh sách từ"
+      Learn: "Học"
+      Lessons: "Bài Học"
+      Title: "Tiêu đề"
+      Users: "Danh sách người dùng"
+      Result: "Kết quả"
+      You_are_learned: "Bạn đã học được"
+      word: "từ"

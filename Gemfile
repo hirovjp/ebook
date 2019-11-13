@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'will_paginate', '>= 3.0'
 
+gem 'rails-i18n'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
