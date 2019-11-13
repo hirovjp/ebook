@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<!--<p>-->
+<!--  <strong>Email:</strong>-->
+  <%#= @user.email %>
+<!--</p>-->
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+<!--<p>-->
+<!--  <strong>Password:</strong>-->
+  <%#= @user.password %>
+<!--</p>-->
 
-<p>
-  <strong>Image:</strong>
-  <%= @user.image %>
-</p>
+<!--<p>-->
+<!--  <strong>Image:</strong>-->
+  <%#= @user.image %>
+<!--</p>-->
 
-<p>
-  <strong>Level:</strong>
-  <%= @user.level %>
-</p>
+<!--<p>-->
+<!--  <strong>Level:</strong>-->
+  <%#= @user.level %>
+<!--</p>-->
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<!--<%#= link_to 'Edit', edit_user_path(@user) %> |-->
+<%#= link_to 'Back', users_path %>
+
+<div class="container">
+  <p>Name: <%= @user.email %></p>
+  <p>Result: <%= @user.learnwordlists.count %>/<%= Wordlist.count %></p>
+  <%= button_to 'Follow', '#', :class => "btn btn-info" %>
+</div>

@@ -5,6 +5,10 @@ class ResultsController < ApplicationController
   # GET /results.json
   def index
     @results = Result.all
+    @total_learned = @user.learnwordlists
+    @result_lessons = Lesson.all
+    @lesson_id = lessons_path.__id__
+    @word = Wordlist.all.joins(:lesson).where(lessons: {id: 2})
   end
 
   # GET /results/1

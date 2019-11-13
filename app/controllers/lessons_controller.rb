@@ -10,6 +10,8 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @lesson_id = lessons_path.__id__
+    @lesson_wordlist = Wordlist.all.joins(:lesson).where(lessons: {id: @lesson})
   end
 
   # GET /lessons/new
