@@ -1,6 +1,5 @@
 class WordlistsController < ApplicationController
   before_action :set_wordlist, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorize, only: :list
 
   # GET /wordlists
   # GET /wordlists.json
