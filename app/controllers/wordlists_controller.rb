@@ -70,7 +70,7 @@ class WordlistsController < ApplicationController
     end
     if params[:wordlist_id] && params[:learnwordlist_id]
     else
-      learn_id = Learnwordlist.select(:wordlist_id).where(:user_id => 1)
+      learn_id = Learnwordlist.select(:wordlist_id).where(:user_id => @user.id)
       if params[:wordlist_id]
         @word_list = @word_list.where.not(id: learn_id)
       end
