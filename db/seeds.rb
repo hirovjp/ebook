@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 20.times do
-  Wordlist.create('category_id' => 1, 'language' => 'hello', 'translate_language' => 'xin chao')
-  Wordlist.create('category_id' => 1, 'language' => 'bye', 'translate_language' => 'tam biet')
-  Wordlist.create('category_id' => 1, 'language' => 'say hello', 'translate_language' => 'say hello')
-  Wordlist.create('category_id' => 1, 'language' => 'black', 'translate_language' => 'den')
-  Wordlist.create('category_id' => 1, 'language' => 'red', 'translate_language' => 'do')
+  Wordlist.create('category_id' => rand(5), 'language' => 'hello', 'translate_language' => 'xin chao', 'lesson_id' => rand(3))
+  Wordlist.create('category_id' => rand(5), 'language' => 'bye', 'translate_language' => 'tam biet', 'lesson_id' => rand(3))
+  Wordlist.create('category_id' => rand(5), 'language' => 'say hello', 'translate_language' => 'say hello', 'lesson_id' => rand(3))
+  Wordlist.create('category_id' => rand(5), 'language' => 'black', 'translate_language' => 'den', 'lesson_id' => rand(3))
+  Wordlist.create('category_id' => rand(5), 'language' => 'red', 'translate_language' => 'do', 'lesson_id' => rand(3))
 end

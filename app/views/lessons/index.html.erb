@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
 <h1>Lessons</h1>
-
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Title</th>
       <th colspan="3"></th>
     </tr>
@@ -15,18 +15,20 @@
     <%= link_to 'New Lesson', new_lesson_path, :class => "btn btn-success" %>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= link_to lesson.title, wordlists_path %></td>
+        <td><%= lesson.id %></td>
+        <td><%= link_to lesson.title, lesson %></td>
         <td><%= link_to 'Show', lesson %></td>
         <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
         <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     <% else %>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= link_to lesson.title, wordlists_path %></td>
-      </tr>
-      <% end %>
+      <% @lessons.each do |lesson| %>
+        <tr>
+          <td><%= lesson.id %></td>
+          <td><%= link_to lesson.title, lesson %></td>
+        </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>
