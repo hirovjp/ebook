@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       delete 'logout' => :destroy
     end
 
-    get 'profile/action', to: 'home#action_user', as: 'action_user'
-
+    get 'wordlist' => 'wordlists#list', as: 'list'
   end
+
 end
