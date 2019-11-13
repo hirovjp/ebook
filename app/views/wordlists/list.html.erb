@@ -19,7 +19,8 @@
 <table class="table">
   <thead>
   <tr>
-    <td>ID</td>
+    <th>ID</th>
+    <th>Category ID</th>
     <th>Lesson ID</th>
     <th><%= t('index.language') %></th>
     <th><%= t('index.translate') %></th>
@@ -32,6 +33,7 @@
     <% @word_list.each do |wordlist| %>
       <tr>
         <td><%= wordlist.id %></td>
+        <td><%= wordlist.category_id %></td>
         <td><%= wordlist.lesson_id %></td>
         <td><%= wordlist.language %></td>
         <td><%= wordlist.translate_language %></td>
@@ -44,6 +46,7 @@
     <% @word_list.each do |wordlist| %>
       <tr>
         <td><%= wordlist.id %></td>
+        <td><%= wordlist.category_id %></td>
         <td><%= wordlist.lesson_id %></td>
         <td><%= wordlist.language %></td>
         <td><%= wordlist.translate_language %></td>
