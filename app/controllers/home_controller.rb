@@ -5,10 +5,11 @@ class HomeController < ApplicationController
     @wordlist = Wordlist.all.paginate(:page => params[:page], :per_page => 5)
     @user = User.find(session[:user_id])
     @demo = Wordlist.joins(:learnwordlists).where(:learnwordlists => {:user_id => @user.id})
+    learn_id = Learnwordlist.select(:wordlist_id).where(:user_id => @user.id)
+    @demo = Wordlist.all.where(id: learn_id)
   end
 
-  def action_user
-
-    @results = Result.joins(:lesson).where('user_id' => @user.id).paginate(:page => params[:page], :per_page => 5)
+  def new
+    @wordlist = Wordlist.new
   end
 end
