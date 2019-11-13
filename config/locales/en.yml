@@ -30,4 +30,15 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      home: "Home"
+      category: "Categories"
+      wordlist: "Words"
+      lesson: "Lessons"
+      user: "Users"
+  index:
+    start: "Start Lesson"
+    more: "More..."
+    listwl: "Words List"
+    word: "word"

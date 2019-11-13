@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authorize
   before_action :back_logout
   # before_action :checkLogin
+  before_action :set_i18n_locale
   protected
 
   def authorize
@@ -23,6 +24,16 @@ class ApplicationController < ActionController::Base
     user = User.create
     session[:user_id] = user.id
     user
+  end
+
+  private
+  def set_i18n_locale
+    locale = params[:locale].to_s.strip.to_sym
+    I18n.locale = I18n.available_locales.include?(locale) ?
+                      locale : I18n.default_locale
+  end
+  def default_url_options
+    {locale: I18n.locale}
   end
 
 end
